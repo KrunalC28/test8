@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion3" href="#filterPanel3">User Details</a>
+            <span class="pull-right panel-collapse-clickable" data-toggle="collapse" data-parent="#accordion3" href="#filterPanel3">
+                                <i class="glyphicon glyphicon-chevron-down"></i>
+                             </span>
+        </h4>
+    </div>
+    <div id="filterPanel3" class="panel-collapse panel-collapse collapse">
+        <div class="panel-body">
+            <filter-text (changed)="search($event)"></filter-text>
+            <hr/>
+            <table class="table table-hover table-bordered" [mfData]="users" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead>
+                    <tr>
+                        <th>
+                            <mfDefaultSorter by="username">Username</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="firstname">First Name</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="lastname">Last Name</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="role">Role</mfDefaultSorter>
+                        </th>
+                        <th>
+                            <mfDefaultSorter by="IsActive">IsActive</mfDefaultSorter>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of mf.data">
+                        <td #uid>{{user.username}}</td>
+                        <td>{{user.firstname}}</td>
+                        <td>{{user.lastname}}</td>
+                        <td #urole contenteditable="true" (blur)="update(urole.innerText,uid.innerText)">{{user.role}}</td>
+                        <td #ustatus (click)="updateStatus(ustatus.innerText,uid.innerText)">{{user.isActive}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <mfBootstrapPaginator [rowsOnPageSet]="[5,5,5]"></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

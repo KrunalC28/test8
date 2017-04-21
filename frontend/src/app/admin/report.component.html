@@ -1,0 +1,39 @@
+<div class="container">
+    <header>
+        <img src="app/images/logo2.png" alt="logo">
+        <h1> Cybage Training Management </h1>
+    </header>
+    <br/>
+    <h4 class="text-primary">Training Session Report</h4>
+    <h5>Scenarios</h5>
+
+    <table class="table table-hover table-bordered" [mfData]="scenarios" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+            <tr>
+                <th>
+                    <mfDefaultSorter by="id">Id</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="scname">Description</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="iscovered">Is Covered ?</mfDefaultSorter>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let scenario of mf.data">
+                <td>{{scenario.id}}</td>
+                <td>{{scenario.scname}}</td>
+                <td>{{scenario.iscovered}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,5,5]"></mfBootstrapPaginator>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

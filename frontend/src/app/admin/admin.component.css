@@ -1,0 +1,28 @@
+header{
+    height:100px;
+    background-color:white;
+}
+header img {
+    height:100px;
+    width:20%;
+    float:left;
+}
+header h1{
+	width:75%;
+    padding-top:2%;
+    float:left;
+    text-align:center;
+    font-size:25px;
+    color:#77a5ef;
+}
+.welcome{
+    display:inline-block;
+    width:100%;
+}
+.welcome h4{
+    float:left;
+}
+
+.welcome a{
+    float:right;
+}

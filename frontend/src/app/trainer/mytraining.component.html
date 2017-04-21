@@ -1,0 +1,60 @@
+<filter-text (changed)="search($event)"></filter-text>
+<hr/>
+<table class="table table-hover table-bordered" [mfData]="trainings" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+        <tr>
+            <th>
+                <mfDefaultSorter by="title">Subject</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="taudience">Target Audience</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="trainer">Trainer</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="date">Date</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="starttime">Start Time</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="endtime">End Time</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="location">Location</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="location">Scenarios</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="complete">Click to Complete Training</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let training of mf.data">
+            <td>{{training.title}}</td>
+            <td>{{training.taudience}}</td>
+            <td>{{training.trainer}}</td>
+            <td>{{training.date}}</td>
+            <td>{{training.starttime}}</td>
+            <td>{{training.endtime}}</td>
+            <td>{{training.location}}</td>
+            <td *ngIf="training.isComplete=='Yes'">Add Scenarios</td>
+            <td *ngIf="training.isComplete=='No'"><a routerLink="detail/{{training.id}}">Add Scenarios</a></td>
+            <td *ngIf="training.isComplete=='Yes'">Complete</td>
+            <td *ngIf="training.isComplete=='No'"><a routerLink="detail/{{training.id}}">Complete</a></td>
+            <!--
+            <td><inline-edit name="scenarios" [(ngModel)]="editableText" (onSave)="saveEditable(value)"></inline-edit></td>
+            -->
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="9">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,5,5]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>

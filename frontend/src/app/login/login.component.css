@@ -1,0 +1,17 @@
+header{
+    height:100px;
+    background-color:#d1e1fc;
+}
+header img {
+    height:100px;
+    width:20%;
+    float:left;
+}
+header h1{
+	width:75%;
+    padding-top:2%;
+    float:left;
+    text-align:center;
+    font-size:25px;
+    color:#77a5ef;
+}

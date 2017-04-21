@@ -1,0 +1,37 @@
+<div class="container">
+     <header>
+        <img src="app/images/logo2.png" alt="logo">
+        <h1> Cybage Training Management </h1>
+    </header>    
+    <br/>
+    <h4 class="text-primary">Scenarios Detail</h4>
+    <table class="table table-hover table-bordered" [mfData]="scenarios" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+        <tr>
+            <th>
+                <mfDefaultSorter by="id">Id</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="scname">Description</mfDefaultSorter>
+            </th>
+            <th>
+                Click to mark as Complete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let scenario of mf.data">
+            <td #sid>{{scenario.id}}</td>
+            <td>{{scenario.scname}}</td>
+            <td><button class="btn btn-primary" (click)="complete(sid.innerText)">Complete</button></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,5,5]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>

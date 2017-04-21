@@ -1,0 +1,30 @@
+<div class="container">
+    <header>
+        <img src="app/images/logo2.png" alt="logo">
+        <h1> Cybage Training Management </h1>
+    </header>
+    <br/>
+    <div class="welcome">
+        <h4> Welcome {{firstname}}</h4>
+        <a (click)="logout()" href="">Logout</a>
+    </div>
+    <div>
+        <h4> Add Scenario for {{training.title}} </h4>
+        <textarea class="form-control" rows="5" cols="50" [(ngModel)]="scenario"></textarea>
+        <br/>
+        <button class="btn btn-primary" (click)="add()"> Add </button>
+        <button class="btn btn-primary" (click)="reset()"> Clear </button>
+        <button class="btn btn-primary" (click)="back()"> Back to List </button>
+    </div>
+</div>
+
+<!--
+<div>
+     <p>{{training.title}}</p>
+    <h4>{{training.id}}</h4>
+    <h4>{{training.title}}</h4>
+    <h4>{{training.date}}</h4>
+    <h4>{{training.starttime}}</h4>
+    <h4>{{training.endtime}}</h4>
+</div>
+-->

@@ -1,0 +1,45 @@
+<div class="container">
+    <header>
+        <img src="app/images/logo2.png" alt="logo">
+        <h1> Cybage Training Management </h1>
+    </header>    
+    <br/>
+    <div class="welcome">
+        <h4> Welcome {{firstname}}</h4>
+        <a (click) = "logout()" href="">Logout</a>
+    </div>
+    <hr/>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#filterPanel">User Management</a>
+                <span class="pull-right panel-collapse-clickable" data-toggle="collapse" data-parent="#accordion" href="#filterPanel">
+                    <i class="glyphicon glyphicon-chevron-down"></i>
+                </span>
+            </h4>
+        </div>
+        <div id="filterPanel" class="panel-collapse panel-collapse collapse">
+            <div class="panel-body">
+                <my-signup></my-signup>
+                <user-details></user-details>                            
+           </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#training" href="#trainingPanel">Training Management</a>
+                <span class="pull-right panel-collapse-clickable" data-toggle="collapse" data-parent="#training" href="#trainingPanel">
+                    <i class="glyphicon glyphicon-chevron-down"></i>
+                </span>
+            </h4>
+        </div>
+        <div id="trainingPanel" class="panel-collapse panel-collapse collapse">
+            <div class="panel-body">
+                <new-training></new-training>
+                <training-details></training-details>
+           </div>
+        </div>
+    </div>
+    <br>
+</div>

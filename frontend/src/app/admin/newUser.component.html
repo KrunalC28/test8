@@ -1,0 +1,136 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#filterPanel2">New User</a>
+            <span class="pull-right panel-collapse-clickable" data-toggle="collapse" data-parent="#accordion2" href="#filterPanel2">
+                <i class="glyphicon glyphicon-chevron-down"></i>
+            </span>
+        </h4>
+    </div>
+    <div id="filterPanel2" class="panel-collapse panel-collapse collapse">
+        <div class="panel-body">
+            <form novalidate autocomplete="off" (ngSubmit)="register()" [formGroup]="userForm">
+                <div class="form-group" [ngClass]="{'has-error': (userForm.get('firstname').touched 
+                                    || userForm.get('firstname').dirty) 
+                                    && !userForm.get('firstname').valid }">
+                    <label for="firstNameId">First Name</label>
+
+                    <div>
+                        <input class="form-control" id="firstNameId" type="text" placeholder="First Name (required)" required formControlName="firstname"
+                        />
+                        <span class="help-block" *ngIf="(userForm.get('firstname').touched 
+                                            || userForm.get('firstname').dirty) 
+                                            && userForm.get('firstname').errors">
+                                <span *ngIf="userForm.get('firstname').errors.required">
+                                    Please enter First name.
+                                </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': (userForm.get('lastname').touched 
+                                    || userForm.get('lastname').dirty) 
+                                    && !userForm.get('lastname').valid }">
+                    <label for="lastNameId">Last Name</label>
+
+                    <div>
+                        <input class="form-control" id="lastNameId" type="text" placeholder="Last Name (required)" required formControlName="lastname"
+                        />
+                        <span class="help-block" *ngIf="(userForm.get('lastname').touched 
+                                            || userForm.get('lastname').dirty) 
+                                            && userForm.get('lastname').errors">
+                                <span *ngIf="userForm.get('lastname').errors.required">
+                                    Please enter Last name.
+                                </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': (userForm.get('username').touched 
+                                    || userForm.get('username').dirty) 
+                                    && !userForm.get('username').valid }">
+                    <label for="lastNameId">User Name</label>
+
+                    <div>
+                        <input class="form-control" id="userNameId" type="text" placeholder="Username (required)" required formControlName="username"
+                        />
+                        <span class="help-block" *ngIf="(userForm.get('username').touched 
+                                            || userForm.get('username').dirty) 
+                                            && userForm.get('username').errors">
+                                <span *ngIf="userForm.get('username').errors.required">
+                                    Please enter Username.
+                                </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': (userForm.get('password').touched 
+                                    || userForm.get('password').dirty) 
+                                    && !userForm.get('password').valid }">
+                    <label for="passwordId">Password</label>
+
+                    <div>
+                        <input class="form-control" id="passwordId" type="password" placeholder="Password (required)" required formControlName="password"
+                        />
+                        <span class="help-block" *ngIf="(userForm.get('password').touched 
+                                            || userForm.get('password').dirty) 
+                                            && userForm.get('password').errors">
+                                <span *ngIf="userForm.get('password').errors.required">
+                                    Please enter Password.
+                                </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': (userForm.get('cpassword').touched 
+                                    || userForm.get('cpassword').dirty) 
+                                    && !userForm.get('cpassword').valid }">
+                    <label for="cpasswordId">Confirm Password</label>
+
+                    <div>
+                        <input class="form-control" id="cpasswordId" type="password" placeholder="Retype Password (required)" required formControlName="cpassword"
+                        />
+                        <span class="help-block" *ngIf="(userForm.get('cpassword').touched 
+                                            || userForm.get('cpassword').dirty) 
+                                            && userForm.get('cpassword').errors">
+                                <span *ngIf="userForm.get('cpassword').errors.required">
+                                    Please Retype Password.
+                                </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': (userForm.get('role').touched 
+                                    || userForm.get('role').dirty) 
+                                    && !userForm.get('role').valid }">
+                    <label for="roleId">Role</label>
+
+                    <div>
+                        <select class="form-control" id="roleId" required name="role" formControlName="role">
+                                <option value="" disabled selected>Select a Role</option>
+                                <option value='admin'> Admin </option>
+                                <option value='trainer'> Trainer </option>
+                                <option value='trainee'> Trainee </option>
+                            </select>
+                        <span class="help-block" *ngIf="(userForm.get('role').touched 
+                                            || userForm.get('role').dirty) 
+                                            && userForm.get('role').errors">
+                                <span *ngIf="userForm.get('role').errors.required">
+                                    Please Enter Role.
+                                </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <span>
+                                <button class="btn btn-primary"
+                                        type="submit"
+                                        [disabled]="!userForm.valid">
+                                    Register
+                                </button>
+                            </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+<!DOCTYPE>
+<div class="panel panel-default">
+   <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion2" href="#trainingPanel2">New Training Session</a>
+            <span class="pull-right panel-collapse-clickable" data-toggle="collapse" data-parent="#accordion2" href="#trainingPanel2">
+                <i class="glyphicon glyphicon-chevron-down"></i>
+            </span>
+        </h4>
+    </div>
+    <div id="trainingPanel2" class="panel-collapse panel-collapse collapse"> 
+        <div class="panel-body">
+            <form
+                novalidate autocomplete="off"
+                (ngSubmit)="register()"
+                [formGroup]="trainingForm">
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('title').touched 
+                                    || trainingForm.get('title').dirty) 
+                                    && !trainingForm.get('title').valid }">
+                        <label for="titleId">Training Subject</label>
+
+                        <div>
+                            <input class="form-control" 
+                                id="titleId" 
+                                type="text" 
+                                placeholder="Subject (required)" 
+                                required
+                                formControlName="title" />
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('title').touched 
+                                            || trainingForm.get('title').dirty) 
+                                            && trainingForm.get('title').errors">
+                                <span *ngIf="trainingForm.get('title').errors.required">
+                                    Please Enter Subject.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('department').touched 
+                                    || trainingForm.get('department').dirty) 
+                                    && !trainingForm.get('department').valid }">
+                        <label for="departmentId">Department</label>
+
+                        <div>
+                            <select class="form-control" 
+                                id="departmentId" 
+                                formControlName="department">
+                                <option value="" disabled selected hidden> Select Department </option>
+                                <option value="Engineering"> Enginerring</option>
+                                <option value="Support"> Support </option>
+                                <option value="Testing"> Testing </option>
+                            </select>
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('department').touched 
+                                            || trainingForm.get('department').dirty) 
+                                            && trainingForm.get('department').errors">
+                                <span *ngIf="trainingForm.get('department').errors.required">
+                                    Please Select Department
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('taudience').touched 
+                                    || trainingForm.get('taudience').dirty) 
+                                    && !trainingForm.get('taudience').valid }">
+                        <label for="taudienceId">Target Audience</label>
+
+                        <div>
+                            <select class="form-control" 
+                                id="taudienceId" 
+                                name="taudience"  
+                                required
+                                formControlName="taudience">
+                                <option value="" disabled selected hidden> Select Audience </option>
+                                <option value="All"> All </option>
+                                <option value="Resourc Pool"> Resourcepool </option>
+                                <option value="Project"> Project Specific </option>
+                            </select>
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('taudience').touched 
+                                            || trainingForm.get('taudience').dirty) 
+                                            && trainingForm.get('taudience').errors">
+                                <span *ngIf="trainingForm.get('taudience').errors.required">
+                                    Please Select Target Audience.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('trainer').touched 
+                                    || trainingForm.get('trainer').dirty) 
+                                    && !trainingForm.get('trainer').valid }">
+                        <label for="lastNameId">Trainer</label>
+
+                        <div>
+                            <select class="form-control" 
+                                id="trainerId" 
+                                formControlName="trainer">
+                                <option value="" disabled selected hidden> Select Trainer </option>
+                                <option value="nikhilv"> Nikhil Vanjara</option>
+                                <option value="vijayc"> Vijay Chauhan </option>
+                                <option value="bhushans"> Bhushan Sapre </option>
+                            </select>
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('trainer').touched 
+                                            || trainingForm.get('trainer').dirty) 
+                                            && trainingForm.get('trainer').errors">
+                                <span *ngIf="trainingForm.get('trainer').errors.required">
+                                    Please Select trainer.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('date').touched 
+                                    || trainingForm.get('date').dirty) 
+                                    && !trainingForm.get('date').valid }">
+                        <label for="dateId">Date</label>
+
+                        <div>
+                            <input class="form-control" 
+                                id="dateId" 
+                                type="date" 
+                                placeholder="Date (required)" 
+                                required
+                                formControlName="date" />
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('date').touched 
+                                            || trainingForm.get('date').dirty) 
+                                            && trainingForm.get('date').errors">
+                                <span *ngIf="trainingForm.get('date').errors.required">
+                                    Please Enter Date.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('starttime').touched 
+                                    || trainingForm.get('starttime').dirty) 
+                                    && !trainingForm.get('starttime').valid }">
+                        <label for="starttimeId">Start Time</label>
+
+                        <div>
+                            <input class="form-control" 
+                                id="starttimeId" 
+                                type="time" 
+                                placeholder="Start Time (required)" 
+                                required
+                                formControlName="starttime" />
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('starttime').touched 
+                                            || trainingForm.get('starttime').dirty) 
+                                            && trainingForm.get('starttime').errors">
+                                <span *ngIf="trainingForm.get('starttime').errors.required">
+                                    Please enter Start Time.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('endtime').touched 
+                                    || trainingForm.get('endtime').dirty) 
+                                    && !trainingForm.get('endtime').valid }">
+                        <label for="endtimeId">End Time</label>
+
+                        <div>
+                            <input class="form-control" 
+                                id="endtimeId" 
+                                type="time" 
+                                placeholder="End Time (required)" 
+                                required
+                                formControlName="endtime" />
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('endtime').touched 
+                                            || trainingForm.get('endtime').dirty) 
+                                            && trainingForm.get('endtime').errors">
+                                <span *ngIf="trainingForm.get('endtime').errors.required">
+                                    Please Enter End Time.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('location').touched 
+                                    || trainingForm.get('location').dirty) 
+                                    && !trainingForm.get('location').valid }">
+                        <label for="locationId">Location</label>
+
+                        <div>
+                            <select class="form-control" 
+                                id="locationId" 
+                                required
+                                name="trainingRoom"
+                                formControlName="location">
+                                <option value="" disabled selected hidden> Select Location </option>
+                                <option value="TR1"> Training Room 1</option>
+                                <option value="TR2"> Training Room 2 </option>
+                                <option value="TR3"> Training Room 3 </option>
+                            </select>
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('location').touched 
+                                            || trainingForm.get('location').dirty) 
+                                            && trainingForm.get('location').errors">
+                                <span *ngIf="trainingForm.get('location').errors.required">
+                                    Please Enter Location.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group"
+                        [ngClass]="{'has-error': (trainingForm.get('role').touched 
+                                    || trainingForm.get('role').dirty) 
+                                    && !trainingForm.get('role').valid }">
+                        <label for="roleId">Scenarios</label>
+
+                        <div>
+                            <input class="form-control" 
+                                id="roleId" 
+                                type="text" 
+                                placeholder="Role (required)" 
+                                required
+                                formControlName="role" />
+                            <span class="help-block" 
+                                    *ngIf="(trainingForm.get('role').touched 
+                                            || trainingForm.get('role').dirty) 
+                                            && trainingForm.get('role').errors">
+                                <span *ngIf="trainingForm.get('role').errors.required">
+                                    Please Enter Scenarios.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    -->
+                    <div class="form-group">
+                        <div>
+                            <span>
+                                <button class="btn btn-primary"
+                                        type="submit"
+                                        [disabled]="!trainingForm.valid">
+                                    Add Training
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
